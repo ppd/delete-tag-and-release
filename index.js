@@ -74,7 +74,6 @@ async function deleteReleases() {
       path: `/repos/${owner}/${repo}/releases`,
       method: "GET",
     });
-    console.log(data);
     releaseIds = (data || [])
       .filter(({ tag_name, draft }) => tag_name === tagName && shouldDeleteDraftRelease ? true : (draft === false))
       .map(({ id }) => id);
